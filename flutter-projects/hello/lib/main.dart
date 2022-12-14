@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  for(int i=0;i<5;i++)
+    print('hello flutter $i');
+  
 }
 
 class MyApp extends StatelessWidget {
