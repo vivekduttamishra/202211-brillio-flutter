@@ -2,8 +2,9 @@
 
 class Point{
 
-  int x=0;
-  int y=0;
+  int? x; //mark nullable. tell null is acceptable
+  int y=0; //supply default 
+  late String color;  //tell it is ok to be intialized late
 
 }
 
@@ -11,8 +12,8 @@ class Point{
 void main(){
 
   var p1=new Point();
-
-  print("$p1 = (${p1.x},${p1.y})");
+  p1.color='blue'; //late initialize
+  print("$p1 = (${p1.x},${p1.y}) color: ${p1.color}");
 
   var p2= Point();
 

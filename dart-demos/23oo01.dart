@@ -4,9 +4,9 @@ class Point{
   late int x;
   late int y;
 
-  Point(int x,int y){
-    this.x=x;
-    this.y=y;
+  Point(int px,int py){
+    x=px;
+    y=py;
   }
 }
 
