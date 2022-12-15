@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 void main() {
   for(int i=0;i<5;i++)
     print('hello flutter $i');
+
+    runApp(MyApp());
   
 }
 
