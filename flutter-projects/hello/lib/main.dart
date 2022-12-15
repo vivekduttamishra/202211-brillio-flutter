@@ -6,7 +6,7 @@ void main() {
   runApp(
     Container(
       // alignment: Alignment.bottomCenter,
-      margin: EdgeInsets.only(
+      padding: EdgeInsets.only(
         top: 50,
         left: 10,
       ),
