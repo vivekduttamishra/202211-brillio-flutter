@@ -2,22 +2,10 @@
 
 import 'package:flutter/material.dart';
 
+import 'app.dart';
+
 void main() {
   runApp(
-    Container(
-      // alignment: Alignment.bottomCenter,
-      padding: EdgeInsets.only(
-        top: 50,
-        left: 10,
-      ),
-      color: Colors.red,
-      child: Text(
-        'Hello Flutter World',
-        textDirection: TextDirection.ltr,
-        style: TextStyle(
-          fontSize: 20,
-        ),
-      ),
-    ),
+   MyApp(),
   );
 }
