@@ -3,7 +3,6 @@
 
 import 'package:flutter/material.dart';
 
-import '../components/navigation-panel.dart';
 import '../styles.dart';
 
 class QuestionScreen extends StatelessWidget {
@@ -57,7 +56,23 @@ class QuestionScreen extends StatelessWidget {
                 flex:2,
                 child:Text(''),
               ),
-              NavigationPanel (1,5),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "<<",
+                    style: navigationTextStyle,
+                  ),
+                  Text(
+                    "2 of 5",
+                    style: navigationTextStyle,
+                  ),
+                  Text(
+                    ">>",
+                    style: navigationTextStyle,
+                  ),
+                ],
+              ),
             ],
           ),
         ),

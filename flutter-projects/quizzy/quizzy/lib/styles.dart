@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 // ignore: unnecessary_const
+// ignore_for_file: prefer_const_constructors
 
 var questionTextStyle=TextStyle(
       fontSize:30,
@@ -15,4 +16,11 @@ var answerTextStyle=TextStyle(
       fontFamily: 'Times New Roman',
       fontWeight: FontWeight.bold,
       color:Colors.blue.shade600,
+);
+
+var navigationTextStyle=TextStyle(
+      fontSize:20,
+      fontFamily: 'Times New Roman',
+      fontWeight: FontWeight.bold,
+      
 );
