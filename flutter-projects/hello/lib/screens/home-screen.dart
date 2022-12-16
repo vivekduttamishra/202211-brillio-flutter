@@ -17,17 +17,29 @@ class HomeScreen extends StatelessWidget {
           Icons.favorite,
           //color:Colors.pink,
         ),
+        actions:[
+          ElevatedButton(
+            onPressed:(){},
+            child: Icon(Icons.sports_score),
+
+          ),
+          ElevatedButton(
+            onPressed:(){},
+            child: Icon(Icons.help_outline),
+
+          ),
+        ]
       ),
       body: Container(
           padding: EdgeInsets.all(10),
           child: Text(''),
         ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {  
-          print('Action Button Pressed');
-        },
-        child: Icon(Icons.sports_score),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {  
+      //     print('Action Button Pressed');
+      //   },
+      //   child: Icon(Icons.sports_score),
+      // ),
     );
   }
 }
