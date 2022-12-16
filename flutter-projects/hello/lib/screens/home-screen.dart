@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter App'),
+        title: Text('Quiz App'),
         leading: Icon(
           Icons.favorite,
           //color:Colors.pink,
@@ -20,13 +20,13 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Container(
           padding: EdgeInsets.all(10),
-          child: Text('Welcome to Flutter!'),
+          child: Text(''),
         ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {  
           print('Action Button Pressed');
         },
-        child: Icon(Icons.contact_support),
+        child: Icon(Icons.sports_score),
       ),
     );
   }
