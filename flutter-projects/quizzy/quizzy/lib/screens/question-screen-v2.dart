@@ -3,7 +3,6 @@
 
 import 'package:flutter/material.dart';
 
-import '../components/answer-panel.dart';
 import '../components/navigation-panel.dart';
 import '../model/question.dart';
 import '../styles.dart';
@@ -29,7 +28,7 @@ class QuestionScreen extends StatelessWidget {
         title: Text('Quizzy'),
       ),
       body: Container(
-        color: screenColor,
+        color: Colors.lightGreenAccent.shade200,
         width: double.infinity,
         padding: EdgeInsets.all(10),
         child: SafeArea(
@@ -49,7 +48,26 @@ class QuestionScreen extends StatelessWidget {
               ),
               Expanded(
                 flex: 3,
-                child: AnswerPanel(question)
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        question.answers[0],
+                        style: answerTextStyle,
+                      ),
+                      Text(
+                        question.answers[1],
+                        style: answerTextStyle,
+                      ),
+                      Text(
+                        question.answers[2],
+                        style: answerTextStyle,
+                      ),
+                      Text(
+                        question.answers[3],
+                        style: answerTextStyle,
+                      ),
+                    ]),
               ),
               Expanded(
                 flex: 2,

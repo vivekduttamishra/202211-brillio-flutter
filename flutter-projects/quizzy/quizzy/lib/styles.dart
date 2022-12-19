@@ -12,10 +12,11 @@ var questionTextStyle=TextStyle(
       color:Colors.blue.shade900,
 );
 var answerTextStyle=TextStyle(
-      fontSize:20,
+      fontSize:28,
+     
       fontFamily: 'Times New Roman',
       fontWeight: FontWeight.bold,
-      color:Colors.blue.shade600,
+      color:Colors.black,
 );
 
 var navigationTextStyle=TextStyle(
@@ -24,3 +25,7 @@ var navigationTextStyle=TextStyle(
       fontWeight: FontWeight.bold,
       
 );
+
+var successColor=Colors.green;
+var errorColor=Colors.red;
+var screenColor=Colors.yellowAccent.shade100;

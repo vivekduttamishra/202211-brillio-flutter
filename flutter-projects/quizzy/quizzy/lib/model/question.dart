@@ -5,7 +5,7 @@ class Question{
   final String question;
   final List<String> answers;
   final int correctAnswerIndex;
-  late int? _givenAnswerIndex; //null by default
+  late int? _givenAnswerIndex=null; //null by default
 
   Question(this.question, this.answers, this.correctAnswerIndex);
 

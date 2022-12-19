@@ -24,5 +24,14 @@ void main(){
 
   var gt20 = numbers.where( (number) => number>20);
   print(gt20);
+
+  var names=['India','USA','France','Japan','Germany'];
+
+  var namesUC= names.map((name)=>name.toUpperCase());
+  print(namesUC);
+
+  var namesLength= names.map((name)=>name.length);
+  print(namesLength);
+
 }
 
