@@ -4,10 +4,22 @@
 import 'package:flutter/material.dart';
 
 import '../components/navigation-panel.dart';
+import '../model/question.dart';
 import '../styles.dart';
 
 class QuestionScreen extends StatelessWidget {
-  const QuestionScreen({Key? key}) : super(key: key);
+
+  QuestionScreen({Key? key}) : super(key: key);
+
+  final Question question = Question(
+      'Who named Mahatma Gandhi as the Father of the Nation? ',
+      [
+        'Jawahar Lal Nehru',
+        'Sardar Patel',
+        'Subhash Chandra Bose',
+        'Ravindra Nath Tagore',
+      ],
+      2);
 
   @override
   Widget build(BuildContext context) {
@@ -24,40 +36,44 @@ class QuestionScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox( height:20,),
+              SizedBox(
+                height: 20,
+              ),
               Text(
-                'Who named Mahatma Gandhi as the Father of the Nation? ',
+                question.question,
                 style: questionTextStyle,
               ),
-              Divider(thickness: 2,),
+              Divider(
+                thickness: 2,
+              ),
               Expanded(
                 flex: 3,
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Text(
-                        'Jawahar Lal Nehru',
+                        question.answers[0],
                         style: answerTextStyle,
                       ),
                       Text(
-                        'Sardar Patel',
+                        question.answers[1],
                         style: answerTextStyle,
                       ),
                       Text(
-                        'Subhash Chandra Bose',
+                        question.answers[2],
                         style: answerTextStyle,
                       ),
                       Text(
-                        'Ravindra Nath Tagore',
+                        question.answers[3],
                         style: answerTextStyle,
                       ),
                     ]),
               ),
               Expanded(
-                flex:2,
-                child:Text(''),
+                flex: 2,
+                child: Text(''),
               ),
-              NavigationPanel (1,5),
+              NavigationPanel(1, 5),
             ],
           ),
         ),

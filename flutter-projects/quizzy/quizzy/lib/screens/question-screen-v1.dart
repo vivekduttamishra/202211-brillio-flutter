@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 
 import '../styles.dart';
 
-class QuestionScreen extends StatelessWidget {
-  const QuestionScreen({Key? key}) : super(key: key);
+class QuestionScreenV1 extends StatelessWidget {
+   QuestionScreenV1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class QuestionScreen extends StatelessWidget {
             children: [
               SizedBox( height:20,),
               Text(
-                'Who named Mahatma Gandhi as the Father of the Nation? ',
+                'Who named Mahatma Gandhi as the Father of the Nation???? ',
                 style: questionTextStyle,
               ),
               Divider(thickness: 2,),

@@ -24,7 +24,9 @@ class _NavigationPanelState extends State<NavigationPanel> {
                   ElevatedButton( 
                     onPressed:(){
                       if(widget.current>1){
+                        setState((){
                          widget.current--;
+                        });
                          print('going to ${widget.current}');
                       }
                         
