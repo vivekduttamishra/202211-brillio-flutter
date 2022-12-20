@@ -1,3 +1,5 @@
+import '../model/question.dart';
+
 var questions=[
     Question(
         "Who named Gandhiji the father of the nation?",

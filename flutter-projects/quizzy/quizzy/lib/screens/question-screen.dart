@@ -1,26 +1,28 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
 import '../components/answer-panel.dart';
 import '../components/navigation-panel.dart';
+import '../data/questions.dart';
 import '../model/question.dart';
+import '../services/quiz.dart';
 import '../styles.dart';
 
 class QuestionScreen extends StatelessWidget {
 
-  QuestionScreen({Key? key}) : super(key: key);
+  
 
-  final Question question = Question(
-      'Who named Mahatma Gandhi as the Father of the Nation? ',
-      [
-        'Jawahar Lal Nehru',
-        'Sardar Patel',
-        'Subhash Chandra Bose',
-        'Ravindra Nath Tagore',
-      ],
-      2);
+  late Quiz quiz;
+  
+  
+  QuestionScreen(){
+    quiz= Quiz(questions);
+    quiz.start(5);
+    
+  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,7 @@ class QuestionScreen extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                question.question,
+                quiz.selectedQuestion.question,
                 style: questionTextStyle,
               ),
               Divider(
@@ -49,13 +51,19 @@ class QuestionScreen extends StatelessWidget {
               ),
               Expanded(
                 flex: 3,
-                child: AnswerPanel(question)
+                child: AnswerPanel(quiz.selectedQuestion)
               ),
               Expanded(
                 flex: 2,
                 child: Text(''),
               ),
-              NavigationPanel(1, 5),
+              NavigationPanel(
+                quiz.currentIndex, 
+                quiz.totalQuestions,
+                onNavigate: (index){
+                  print('navigating to $index');
+                },
+                ),
             ],
           ),
         ),

@@ -37,7 +37,7 @@ class Quiz{
     if(questionIndex>=1 && 
        questionIndex<=questions.length 
        && !selectedQuestion.isAnswered){
-        
+
       selectedQuestion.givenAnswerIndex=answerIndex;
       totalAnswered++;
       if(selectedQuestion.isCorrectAnswer)
@@ -66,6 +66,6 @@ class Quiz{
 
   get gameOver=>totalAnswered==questions.length;
 
-  
+  get totalQuestions=> questions.length;
 
 }
