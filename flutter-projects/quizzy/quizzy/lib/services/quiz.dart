@@ -1,3 +1,5 @@
+// ignore_for_file: curly_braces_in_flow_control_structures
+
 import '../model/question.dart';
 
 class Quiz{
@@ -15,6 +17,7 @@ class Quiz{
     if(total>questionBank.length){
       total=questionBank.length;
       questions=questionBank;
+      questions.shuffle();
     } else {
       questionBank.shuffle();
       questions=questionBank
@@ -22,7 +25,7 @@ class Quiz{
                     .toList();
     }
 
-    currentIndex=0;
+    currentIndex=1;
     totalCorrectAnswered=0;
     for(var question in questions) {
       question.givenAnswerIndex=null;
@@ -31,17 +34,37 @@ class Quiz{
   }
 
   addResponse(int questionIndex, int answerIndex){
-
+    if(questionIndex>=1 && 
+       questionIndex<=questions.length 
+       && !selectedQuestion.isAnswered){
+        
+      selectedQuestion.givenAnswerIndex=answerIndex;
+      totalAnswered++;
+      if(selectedQuestion.isCorrectAnswer)
+        totalCorrectAnswered++;
+      
+    }
   }
 
   next(){
+    if(currentIndex<questions.length){
+      currentIndex++;
+      return selectedQuestion;
 
+    }
   }
+
+  Question get selectedQuestion=> questions[currentIndex-1];
+
   previous(){
-
+    if(currentIndex>1)
+    {
+      currentIndex--;
+      return selectedQuestion;
+    }
   }
 
-  get gameOver=>false;
+  get gameOver=>totalAnswered==questions.length;
 
   
 
