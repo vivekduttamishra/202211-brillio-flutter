@@ -46,6 +46,15 @@ class Quiz{
     }
   }
 
+  select(index){
+    if(index>=1 && index<=questions.length){
+      print("updating currentIndex to $index");
+      currentIndex=index;
+      return selectedQuestion;
+    }
+    
+  }
+
   next(){
     if(currentIndex<questions.length){
       currentIndex++;

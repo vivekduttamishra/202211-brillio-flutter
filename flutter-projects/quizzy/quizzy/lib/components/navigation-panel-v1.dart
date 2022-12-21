@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print, must_be_immutable
+// ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
 
@@ -6,13 +6,18 @@ import 'package:flutter/material.dart';
 import '../styles.dart';
 // ignore_for_file: prefer_const_constructors
 
-class NavigationPanel extends StatelessWidget {
-  final int current;
-  final int total;
+class NavigationPanel extends StatefulWidget {
+  int current;
+  int total;
   Function onNavigate;
   NavigationPanel(this.current, this.total,{Key? key, 
   required this.onNavigate}) : super(key: key);
 
+  @override
+  State<NavigationPanel> createState() => _NavigationPanelState();
+}
+
+class _NavigationPanelState extends State<NavigationPanel> {
   @override
   Widget build(BuildContext context) {
     return    Row(
@@ -20,8 +25,15 @@ class NavigationPanel extends StatelessWidget {
                 children: [
                   ElevatedButton( 
                     onPressed:(){
-                      if(current>1){
-                        onNavigate(current-1);
+                      // if(widget.current>1){
+                      //   setState((){
+                      //    widget.current--;
+                      //   });
+                      //    print('going to ${widget.current}');
+                      // }
+
+                      if(widget.current>1){
+                        widget.onNavigate(widget.current--);
                       }
                         
                     },
@@ -32,13 +44,15 @@ class NavigationPanel extends StatelessWidget {
 
                   ),
                   Text(
-                    "${current} of ${total}",
+                    "${widget.current} of ${widget.total}",
                     style: navigationTextStyle,
                   ),
                   OutlinedButton( 
                     onPressed:(){
-                        if(current<total){
-                          onNavigate(current+1);
+                        
+
+                        if(widget.current<widget.total){
+                          widget.onNavigate(widget.current++);
                       }
                     },
                     child:Icon(

@@ -73,7 +73,7 @@ class QuestionScreen extends StatelessWidget {
                 flex: 2,
                 child: Text(''),
               ),
-              NavigationPanel(1, 5),
+              NavigationPanel(1, 5,onNavigate:(){}),
             ],
           ),
         ),

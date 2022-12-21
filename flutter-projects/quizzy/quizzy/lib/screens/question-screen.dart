@@ -5,27 +5,32 @@ import 'package:flutter/material.dart';
 
 import '../components/answer-panel.dart';
 import '../components/navigation-panel.dart';
+import '../components/question-panel.dart';
 import '../data/questions.dart';
 import '../model/question.dart';
 import '../services/quiz.dart';
 import '../styles.dart';
 
-class QuestionScreen extends StatelessWidget {
-
-  
-
+class QuestionScreen extends StatefulWidget {
   late Quiz quiz;
-  
-  
-  QuestionScreen(){
-    quiz= Quiz(questions);
+
+  QuestionScreen() {
+    quiz = Quiz(questions);
     quiz.start(5);
-    
   }
-  
 
   @override
+  State<QuestionScreen> createState() => _QuestionScreenState();
+}
+
+class _QuestionScreenState extends State<QuestionScreen> {
+
+ 
+  
+  @override
   Widget build(BuildContext context) {
+    
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Quizzy'),
@@ -36,34 +41,19 @@ class QuestionScreen extends StatelessWidget {
         padding: EdgeInsets.all(10),
         child: SafeArea(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                quiz.selectedQuestion.question,
-                style: questionTextStyle,
-              ),
-              Divider(
-                thickness: 2,
-              ),
-              Expanded(
-                flex: 3,
-                child: AnswerPanel(quiz.selectedQuestion)
-              ),
-              Expanded(
-                flex: 2,
-                child: Text(''),
-              ),
+              Expanded(child: QuestionPanel(widget.quiz.selectedQuestion)),
               NavigationPanel(
-                quiz.currentIndex, 
-                quiz.totalQuestions,
-                onNavigate: (index){
-                  print('navigating to $index');
+                widget.quiz.currentIndex,
+                widget.quiz.totalQuestions,
+                onNavigate: (index) {
+                  setState((){
+                    widget.quiz.select(index);
+                  });
                 },
-                ),
+              ),
             ],
           ),
         ),
