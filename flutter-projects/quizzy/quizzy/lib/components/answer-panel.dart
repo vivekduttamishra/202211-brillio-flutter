@@ -41,16 +41,19 @@ class AnswerPanel extends StatelessWidget {
 
 
 
-          return OutlinedButton(
-            onPressed:clickHandler,
-            style: OutlinedButton.styleFrom(backgroundColor:color),
-            
-            child: Text(
-              answer,
-              style: answerTextStyle,
-              textAlign: TextAlign.center,
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+            child: OutlinedButton(
+              onPressed:clickHandler,
+              style: OutlinedButton.styleFrom(backgroundColor:color),
+              
+              child: Text(
+                answer,
+                style: answerTextStyle,
+                textAlign: TextAlign.center,
+              ),
+              
             ),
-            
           );
         }).toList()
       ],

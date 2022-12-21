@@ -19,7 +19,7 @@ class NavigationPanel extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton( 
-                    onPressed:(){
+                    onPressed:current==1?null:(){
                       if(current>1){
                         onNavigate(current-1);
                       }
@@ -35,8 +35,8 @@ class NavigationPanel extends StatelessWidget {
                     "${current} of ${total}",
                     style: navigationTextStyle,
                   ),
-                  OutlinedButton( 
-                    onPressed:(){
+                  ElevatedButton( 
+                    onPressed:current==total?null:(){
                         if(current<total){
                           onNavigate(current+1);
                       }

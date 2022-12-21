@@ -16,6 +16,9 @@ class Question{
       _givenAnswerIndex = value;
   }
 
+  void reset(){
+    _givenAnswerIndex = null;
+  }
 
   get isAnswered=> givenAnswerIndex!=null;
 

@@ -27,8 +27,9 @@ class Quiz{
 
     currentIndex=1;
     totalCorrectAnswered=0;
+    totalAnswered=0;
     for(var question in questions) {
-      question.givenAnswerIndex=null;
+      question.reset();
     }
 
   }

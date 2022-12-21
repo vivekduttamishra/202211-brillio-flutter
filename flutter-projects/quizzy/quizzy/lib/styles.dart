@@ -29,3 +29,11 @@ var navigationTextStyle=TextStyle(
 var successColor=Colors.green;
 var errorColor=Colors.red;
 var screenColor=Colors.yellowAccent.shade100;
+
+var welcomeScreenColor=Colors.redAccent.shade400;
+
+var homeScreenTitle=TextStyle(
+  color:Colors.redAccent.shade400,
+  fontSize:25,
+  fontWeight:FontWeight.bold,
+);
