@@ -1,20 +1,17 @@
-// ignore_for_file: curly_braces_in_flow_control_structures
+// ignore_for_file: curly_braces_in_flow_control_structures, must_be_immutable
 
 import 'package:flutter/material.dart';
 
 import '../model/question.dart';
 import '../styles.dart';
 
-class AnswerPanel extends StatefulWidget {
+class AnswerPanel extends StatelessWidget {
   Question question;
+  Function onAnswerSelected;
+  AnswerPanel(this.question, {required this.onAnswerSelected, Key? key})
+   : super(key: key);
 
-  AnswerPanel(this.question, {Key? key}) : super(key: key);
-
-  @override
-  State<AnswerPanel> createState() => _AnswerPanelState();
-}
-
-class _AnswerPanelState extends State<AnswerPanel> {
+ 
   @override
   Widget build(BuildContext context) {
 
@@ -24,26 +21,23 @@ class _AnswerPanelState extends State<AnswerPanel> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment:CrossAxisAlignment.stretch,
       children: [
-        ...widget.question.answers.asMap().entries.map((entry) {
+        ...question.answers.asMap().entries.map((entry) {
           var answer=entry.value;
           var index=entry.key;
           
           var color=Colors.transparent;
-          if(index==widget.question.givenAnswerIndex){
-            if(widget.question.isCorrectAnswer)
+          if(index==question.givenAnswerIndex){
+            if(question.isCorrectAnswer)
               color=successColor;
             else
               color=errorColor;
           }
 
-          var  clickHandler= widget.question.givenAnswerIndex!=null
+          var  clickHandler= question.givenAnswerIndex!=null
                   ?null     //disable button click if answer is given (!=null)
-                  : () { 
-              
-              setState((){
-                widget.question.givenAnswerIndex=index;
-              });
-            };
+                  : () {
+                    onAnswerSelected(index); 
+                  };
 
 
 

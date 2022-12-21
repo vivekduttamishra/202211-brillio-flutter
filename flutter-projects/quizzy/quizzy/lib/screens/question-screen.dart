@@ -44,7 +44,12 @@ class _QuestionScreenState extends State<QuestionScreen> {
             //mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Expanded(child: QuestionPanel(widget.quiz.selectedQuestion)),
+              Expanded(child: QuestionPanel(
+                widget.quiz.selectedQuestion,
+                onAnswerSelected:(int answerIndex){
+                  print('answer selected is $answerIndex');
+                }  
+              )),
               NavigationPanel(
                 widget.quiz.currentIndex,
                 widget.quiz.totalQuestions,

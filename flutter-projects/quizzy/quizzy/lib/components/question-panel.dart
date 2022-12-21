@@ -6,7 +6,9 @@ import 'answer-panel.dart';
 
 class QuestionPanel extends StatelessWidget {
   final Question question;
-  const QuestionPanel(this.question, {Key? key}) : super(key: key);
+  final Function onAnswerSelected;
+
+  const QuestionPanel(this.question, {Key? key, required this.onAnswerSelected}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class QuestionPanel extends StatelessWidget {
           thickness: 2,
         ),
         SizedBox(height: 40,),
-        AnswerPanel(question),
+        AnswerPanel(question, onAnswerSelected:onAnswerSelected),
       ],
     );
   }
