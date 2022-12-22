@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizz2/screens/question-screen.dart';
 
 
 import '../services/quiz.dart';
@@ -8,10 +9,11 @@ import '../styles.dart';
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 class HomeScreen extends StatelessWidget {
-  final Function navigate;
+
   Quiz quiz;
+  static const String routeName="/";
   
-  HomeScreen({required this.navigate,required this.quiz,Key? key}) : super(key: key);
+  HomeScreen({required this.quiz,Key? key}) : super(key: key);
 
 
   @override
@@ -21,20 +23,20 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.question_answer,
-              size:150,
-              color: Colors.redAccent.shade400,
-
+            Image.asset(
+              'assets/images/quiz02.png',
+              //width: 200,
             ),
             Text(
               'Welcome to Quizzy',
               style: homeScreenTitle,
+              textAlign: TextAlign.center,
             ),
             ElevatedButton(
               onPressed: () {
                 quiz.start(10);
-                navigate("quiz");
+                //navigate("quiz");
+                Navigator.of(context).pushNamed(QuestionScreen.routeName);
               },
               style: ElevatedButton.styleFrom(primary: welcomeScreenColor),
               child: Text('Start Quiz'),

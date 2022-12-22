@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizz2/components/info_line.dart';
+import 'package:quizz2/screens/home_screen.dart';
 
 import '../model/question.dart';
 import '../services/quiz.dart';
@@ -9,10 +10,9 @@ import '../styles.dart';
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 class ResultScreen extends StatelessWidget {
-  final Function navigate;
   Quiz quiz;
-
-  ResultScreen({required this.quiz, required this.navigate, Key? key})
+  static const String routeName="/result";
+  ResultScreen({required this.quiz,  Key? key})
       : super(key: key);
 
   @override
@@ -24,15 +24,17 @@ class ResultScreen extends StatelessWidget {
           actions: [
             IconButton(
               onPressed: () {
-                navigate('home');
+                //navigate('home');
+                Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
               },
+              
               icon: Icon(
                 Icons.home,
               ),
             )
           ]),
       body: Container(
-        color: screenColor,
+        //color: screenColor,
         padding: EdgeInsets.all(5),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -40,7 +42,7 @@ class ResultScreen extends StatelessWidget {
             Text(
               "Quiz Result",
               textAlign: TextAlign.center,
-              style: headingText,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             Divider(
               thickness: 2,
